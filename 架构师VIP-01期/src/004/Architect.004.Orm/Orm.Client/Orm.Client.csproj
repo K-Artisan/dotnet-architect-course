@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Orm.Common\Orm.Common.csproj" />
+    <ProjectReference Include="..\Orm.DAL\Orm.DAL.csproj" />
+    <ProjectReference Include="..\Orm.Framework\Orm.Framework.csproj" />
+    <ProjectReference Include="..\Orm.Model\Orm.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.ArchitectBattalion.ORMExplore", "Zhaoxi.ArchitectBattalion.ORMExplore\Zhaoxi.ArchitectBattalion.ORMExplore.csproj", "{4289847D-789E-4F5E-9DC7-FD01072B30BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.ArchitectBattalion.Model", "Zhaoxi.ArchitectBattalion.Model\Zhaoxi.ArchitectBattalion.Model.csproj", "{7826B008-FA23-4F82-B150-44B06C01E150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.ArchitectBattalion.DAL", "Zhaoxi.ArchitectBattalion.DAL\Zhaoxi.ArchitectBattalion.DAL.csproj", "{885F7C01-70FA-4A50-88D8-EBCBED9944B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.ArchitectBattalion.Framework", "Zhaoxi.ArchitectBattalion.Framework\Zhaoxi.ArchitectBattalion.Framework.csproj", "{01790EBC-5FB7-419C-A6FC-A5A55164CDDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4289847D-789E-4F5E-9DC7-FD01072B30BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4289847D-789E-4F5E-9DC7-FD01072B30BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4289847D-789E-4F5E-9DC7-FD01072B30BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4289847D-789E-4F5E-9DC7-FD01072B30BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7826B008-FA23-4F82-B150-44B06C01E150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7826B008-FA23-4F82-B150-44B06C01E150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7826B008-FA23-4F82-B150-44B06C01E150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7826B008-FA23-4F82-B150-44B06C01E150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{885F7C01-70FA-4A50-88D8-EBCBED9944B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{885F7C01-70FA-4A50-88D8-EBCBED9944B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{885F7C01-70FA-4A50-88D8-EBCBED9944B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{885F7C01-70FA-4A50-88D8-EBCBED9944B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01790EBC-5FB7-419C-A6FC-A5A55164CDDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01790EBC-5FB7-419C-A6FC-A5A55164CDDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01790EBC-5FB7-419C-A6FC-A5A55164CDDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01790EBC-5FB7-419C-A6FC-A5A55164CDDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {383BBD93-D7C6-4835-8EA3-042FACDB920C}
+	EndGlobalSection
+EndGlobal
