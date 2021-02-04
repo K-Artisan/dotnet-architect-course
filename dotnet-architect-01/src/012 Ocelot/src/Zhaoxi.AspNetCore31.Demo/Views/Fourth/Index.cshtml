@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index-Fourth</h1>
+<h3>@base.ViewBag.UserName</h3>
+
+@foreach (var user in base.ViewBag.UserList)
+{
+    <h3>@user.Name</h3>
+}
+
+
+@*@foreach (var user in base.ViewBag.UserList1)
+{
+    <h3>@user.Name</h3>
+}*@
