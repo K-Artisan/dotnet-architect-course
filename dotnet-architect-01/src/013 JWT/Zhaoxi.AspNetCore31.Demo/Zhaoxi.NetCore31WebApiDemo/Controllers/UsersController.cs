@@ -56,6 +56,7 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
             this._iConfiguration = configuration;
             this._iUserService = userService;
 
+
             #region 为了测试方便，不从数据获取数据，使用内存
             //this._userList = this._iUserService.Query<Zhaoxi.EntityFrameworkCore31.Model.User>(u => u.Id > 1)
             //                    .OrderBy(u => u.Id)
@@ -87,7 +88,6 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
         [HttpGet]
         public IEnumerable<Users> Get()
         {
-            this._logger.LogWarning($"{DateTime.Now.ToString("HH:mm:ss fff")} {this.GetType()} Get......");
             return _userList;
         }
 

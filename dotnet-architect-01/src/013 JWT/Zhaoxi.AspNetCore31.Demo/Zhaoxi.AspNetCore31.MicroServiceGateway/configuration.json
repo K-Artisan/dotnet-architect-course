@@ -43,7 +43,7 @@
 //      "UpstreamPathTemplate": "/T5727/{url}", //网关地址--url变量
 //      "UpstreamHttpMethod": [ "Get", "Post" ]
 //    },
-//   {
+//        {
 //      "DownstreamPathTemplate": "/api/{url}", //服务地址--url变量
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
@@ -58,7 +58,7 @@
 //  ]
 //}
 
-//*****************************单地址多实例负载均衡********************************
+////*****************************单地址多实例负载均衡********************************
 //{
 //  "ReRoutes": [
 //    {
@@ -130,16 +130,16 @@
       "QoSOptions": {
         "ExceptionsAllowedBeforeBreaking": 3, //允许多少个异常请求
         "DurationOfBreak": 10000, // 熔断的时间，单位为ms
-        "TimeoutValue": 10000 //如果下游请求的处理时间超过多少则自动将请求设置为超时 默认90秒
+        "TimeoutValue": 10000 //如果下游请求的处理时间超过多少则自如将请求设置为超时 默认90秒
       }
-      //,"RateLimitOptions": {
+      //"RateLimitOptions": {
       //  "ClientWhitelist": [], //白名单
       //  "EnableRateLimiting": true,
       //  "Period": "5m", //1s, 5m, 1h, 1d  jeffzhang
       //  "PeriodTimespan": 5, //多少秒之后客户端可以重试
       //  "Limit": 5 //统计时间段内允许的最大请求数量
-      //}
-      //,"FileCacheOptions": {
+      //},
+      //"FileCacheOptions": {
       //  "TtlSeconds": 10
       //} //"缓存"
     }
@@ -150,8 +150,8 @@
       "Host": "localhost",
       "Port": 8500,
       "Type": "Consul" //由Consul提供服务发现
-    }
-    //,"RateLimitOptions": {
+    },
+    //"RateLimitOptions": {
     //  "QuotaExceededMessage": "Too many requests, maybe later? 11", // 当请求过载被截断时返回的消息
     //  "HttpStatusCode": 666 // 当请求过载被截断时返回的http status
     //}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using System.Web.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,16 +19,18 @@ using HttpGetAttribute = Microsoft.AspNetCore.Mvc.HttpGetAttribute;
 using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
 using HttpPutAttribute = Microsoft.AspNetCore.Mvc.HttpPutAttribute;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Zhaoxi.AspNetCore31.Demo.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    [Microsoft.AspNetCore.Authorization.Authorize]
+    public class UsersNewController : ControllerBase
     {
         #region MyRegion
         private ILoggerFactory _Factory = null;
-        private ILogger<UsersController> _logger = null;
+        private ILogger<UsersNewController> _logger = null;
         private ITestServiceA _ITestServiceA = null;
         private ITestServiceB _ITestServiceB = null;
         private ITestServiceC _ITestServiceC = null;
@@ -37,8 +40,8 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
         private readonly IConfiguration _iConfiguration;
         private readonly IUserService _iUserService;
         public ITestServiceA ITestServiceA { get; set; }
-        public UsersController(ILoggerFactory factory,
-            ILogger<UsersController> logger,
+        public UsersNewController(ILoggerFactory factory,
+            ILogger<UsersNewController> logger,
             ITestServiceA testServiceA,
             ITestServiceB testServiceB,
             ITestServiceC testServiceC,
@@ -56,29 +59,16 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
             this._iConfiguration = configuration;
             this._iUserService = userService;
 
-            #region 为了测试方便，不从数据获取数据，使用内存
-            //this._userList = this._iUserService.Query<Zhaoxi.EntityFrameworkCore31.Model.User>(u => u.Id > 1)
-            //                    .OrderBy(u => u.Id)
-            //                    .Skip(1)
-            //                    .Take(5)
-            //                    .Select(u => new Users()
-            //                    {
-            //                        UserID = u.Id,
-            //                        UserEmail = u.Email,
-            //                        UserName = u.Name
-            //                    }).ToList();
-
-            this._userList = new List<Users>() {
-                    new Users{ UserID = 1, UserName = "User-01"},
-                    new Users{ UserID = 2, UserName = "User-02"},
-                    new Users{ UserID = 3, UserName = "User-03"},
-                    new Users{ UserID = 4, UserName = "User-04"},
-                    new Users{ UserID = 5, UserName = "User-05"},
-                    new Users{ UserID = 6, UserName = "User-06"},
-            };
-
-
-            #endregion
+            this._userList = this._iUserService.Query<Zhaoxi.EntityFrameworkCore31.Model.User>(u => u.Id > 1)
+                                        .OrderBy(u => u.Id)
+                                        .Skip(1)
+                                        .Take(5)
+                                        .Select(u => new Users()
+                                        {
+                                            UserID = u.Id,
+                                            UserEmail = u.Email,
+                                            UserName = u.Name
+                                        }).ToList();
         }
         #endregion
 
@@ -87,7 +77,6 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
         [HttpGet]
         public IEnumerable<Users> Get()
         {
-            this._logger.LogWarning($"{DateTime.Now.ToString("HH:mm:ss fff")} {this.GetType()} Get......");
             return _userList;
         }
 
@@ -100,7 +89,7 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
 
         // GET api/Users/5
         [HttpGet]
-
+        [Microsoft.AspNetCore.Authorization.AllowAnonymous]
         public Users GetUserByID(int id)
         {
             base.HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");//允许跨域
@@ -122,8 +111,12 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
         //[RouteAttribute("GetUserByName")]
         public IEnumerable<Users> GetUserByName(string userName)
         {
-
             //throw new Exception("1234567");
+            var nickName = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(c => c.Type.Equals("NickName"))?.Value;
+            Console.WriteLine($"This is GetUserByName 校验 {nickName}");
+
+            var role = HttpContext.AuthenticateAsync().Result.Principal.Claims.FirstOrDefault(c => c.Type.Equals("role"))?.Value;
+            Console.WriteLine($"This is role 校验 {role}");
 
             string userNameParam = base.HttpContext.Request.Query["userName"];
 
@@ -427,11 +420,5 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
             return string.Format("{0}_{1}_{2}_{3}", user.UserID, user.UserName, user.UserEmail, info);
         }
         #endregion HttpDelete
-    }
-    public class Users
-    {
-        public int UserID { get; set; }
-        public string UserName { get; set; }
-        public string UserEmail { get; set; }
     }
 }

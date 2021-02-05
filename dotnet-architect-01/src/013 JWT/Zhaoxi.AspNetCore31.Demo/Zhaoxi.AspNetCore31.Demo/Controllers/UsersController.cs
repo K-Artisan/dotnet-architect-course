@@ -56,29 +56,16 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
             this._iConfiguration = configuration;
             this._iUserService = userService;
 
-            #region 为了测试方便，不从数据获取数据，使用内存
-            //this._userList = this._iUserService.Query<Zhaoxi.EntityFrameworkCore31.Model.User>(u => u.Id > 1)
-            //                    .OrderBy(u => u.Id)
-            //                    .Skip(1)
-            //                    .Take(5)
-            //                    .Select(u => new Users()
-            //                    {
-            //                        UserID = u.Id,
-            //                        UserEmail = u.Email,
-            //                        UserName = u.Name
-            //                    }).ToList();
-
-            this._userList = new List<Users>() {
-                    new Users{ UserID = 1, UserName = "User-01"},
-                    new Users{ UserID = 2, UserName = "User-02"},
-                    new Users{ UserID = 3, UserName = "User-03"},
-                    new Users{ UserID = 4, UserName = "User-04"},
-                    new Users{ UserID = 5, UserName = "User-05"},
-                    new Users{ UserID = 6, UserName = "User-06"},
-            };
-
-
-            #endregion
+            this._userList = this._iUserService.Query<Zhaoxi.EntityFrameworkCore31.Model.User>(u => u.Id > 1)
+                                        .OrderBy(u => u.Id)
+                                        .Skip(1)
+                                        .Take(5)
+                                        .Select(u => new Users()
+                                        {
+                                            UserID = u.Id,
+                                            UserEmail = u.Email,
+                                            UserName = u.Name
+                                        }).ToList();
         }
         #endregion
 
@@ -87,15 +74,7 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
         [HttpGet]
         public IEnumerable<Users> Get()
         {
-            this._logger.LogWarning($"{DateTime.Now.ToString("HH:mm:ss fff")} {this.GetType()} Get......");
             return _userList;
-        }
-
-        [HttpGet]
-        public IEnumerable<Users> GetExcetion()
-        {
-            this._logger.LogWarning($"{DateTime.Now.ToString("HH:mm:ss fff")} {this.GetType()} GetExcetion......");
-            throw new Exception();
         }
 
         // GET api/Users/5
@@ -103,7 +82,6 @@ namespace Zhaoxi.AspNetCore31.Demo.Controllers
 
         public Users GetUserByID(int id)
         {
-            base.HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");//允许跨域
             //throw new Exception("1234567");
             string idParam = base.HttpContext.Request.Query["id"];
             var user = _userList.FirstOrDefault(users => users.UserID == id);
