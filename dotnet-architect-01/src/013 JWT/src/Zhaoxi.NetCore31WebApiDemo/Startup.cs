@@ -83,11 +83,11 @@ namespace Zhaoxi.NetCore31WebApiDemo
 
             app.UseHttpsRedirection();
 
+            app.UseRouting();
+
             #region jwt
             app.UseAuthentication();//注意添加这一句，启用验证
             #endregion
-
-            app.UseRouting();
 
             app.UseAuthorization();
             Console.WriteLine(this.Configuration["ip"]);
