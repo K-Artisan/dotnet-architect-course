@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app" >
+        <p>姓名：{{msg}}</p>
+        <p v-text="msg2">姓名</p>
+        <p v-html="msg2"></p>
+        <input :type="type">
+        <button @click="clickMe()">点击我</button>
+    </div>
+    <script>
+        //v-cloak
+        //{{}}插值表达式和v-text
+        //区别1：插值表达式在vue实例没有对页面进行渲染时会出现非常恶心的大括号
+        //区别2：二者皆可对页面进行数据的渲染，但是差值表达式不会覆盖标签原有的内容，而v-text会替换掉被渲染标签中的内容
+        //v-html
+        //v-bind =>简写
+        //v-on
+            var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "张三",
+                msg2:"<b>李四</b>",
+                type:"checkbox"
+            },
+            methods: {
+                clickMe:function(){
+                    alert();
+                }
+            },
+        })
+    </script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</body>
+
+</html>

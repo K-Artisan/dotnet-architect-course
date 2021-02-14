@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p style="background-color: brown;color:#fff">我是P标签</p>
+        <p :style="[style1,style2]">我是P标签</p>
+        <p :style="{color:'brown','font-size':'18px'}">我是P标签</p>
+
+        <p :class="'testP1'">我是P标签</p>
+        <p :class="['testP1', 'testP2']">我是P标签</p>
+        <p :class="[isShowRed?'testP1':'testP2']">我是P标签</p>
+    </div>
+    <script>
+          var vm = new Vue({
+            el: "#app",
+            data:{
+                isShowRed:false,
+                style1:{color:"#fff","font-size":"18px"},
+                style2:{"background-color": "brown"}
+            }
+        })
+    </script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .bold{
+            font-weight: bold;
+        }
+        .testP1{
+            color:brown;
+        }
+        .testP2{
+            color:blue;
+        }
+    </style>
+</body>
+</html>

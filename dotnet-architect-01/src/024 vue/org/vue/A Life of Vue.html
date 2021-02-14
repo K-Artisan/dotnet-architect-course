@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+    <script>
+        //MVVM => M:Model、V:View、VM:ViewModel
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"Hello world"
+            },
+            //在Vue实例创建前触发——类似于cpu还在图纸上
+            beforeCreate() {
+                console.log(this.msg);
+            },
+            //Vue实例被创建，这是最早可以操作data、methods中数据的时候——类似于cpu已被制造
+            created() {
+                console.log(this.msg);
+            },
+            //实例挂在前触发——类似于CPU以安装到电脑上，但是电脑未开机
+            beforeMount() {
+                
+            },
+            //已被挂载，此时我们的data中的数据可以渲染到页面——类似于电脑一开机，cpu开始工作
+            mounted() {
+
+            },
+            //在数据被更新时，但是虽然data中的数据被更新了，但是页面中的数据并没有被更新
+            beforeUpdate() {
+                console.log("beforeUpdate");
+            },
+            //此时data中的数据以及页面中的数据都被更新了
+            updated() {
+                console.log("update");
+            },
+            //在实例被注销时触发
+            beforeDestroy() {
+                console.log("beforeDestroy");
+            },
+            //实例已被注销时触发
+            destroyed() {
+                console.log("destroyed");
+            },
+        })
+    </script>
+</body>
+</html>

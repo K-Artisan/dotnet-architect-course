@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-for="(user,index)  in users" :key="user.id">
+            <input type="checkbox">{{user.userName}}——{{user.isChecked}}
+        </p>
+        <button @click ="AddUser">AddUser</button>
+        <p v-for="num in nums">{{num}}</p>
+        <p v-for="(val,key,i) in user">{{val}}——{{key}}——{{i}}</p>
+        <p v-for="num in 10">{{num}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                nums:[1,2,3,4,5,6,7],
+                users: [
+                    { userName: "张三", id: 1, isChecked: false },
+                    { userName: "李四", id: 2, isChecked: false },
+                    { userName: "王五", id: 3, isChecked: false },
+                ],
+                user:{ userName: "张三", id: 1, isChecked: false },
+            },
+            methods: {
+                AddUser(){
+                    this.users.unshift( { userName: "赵六", id: 4, isChecked: false },) 
+                }
+            },
+        })
+    </script>
+</body>
+</html>

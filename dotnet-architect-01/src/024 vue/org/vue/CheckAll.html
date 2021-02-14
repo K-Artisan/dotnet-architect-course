@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" @change="checkedAll" v-model="checkAll">全选
+        <p v-for="user in users">
+            <input type="checkbox" v-model="user.isChecked" @change="check">{{user.userName}}——{{user.isChecked}}
+        </p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                users: [
+                    { userName: "张三", id: 1, isChecked: false },
+                    { userName: "李四", id: 2, isChecked: false },
+                    { userName: "王五", id: 3, isChecked: false },
+                ],
+                checkAll: false
+            },
+            methods: {
+                checkedAll() {
+                    this.users.forEach(element => {
+                        element.isChecked = this.checkAll;
+                    });
+                },
+                check() {
+                    // if (this.users.length == this.users.filter(m => m.isChecked).length)
+                    //     this.checkAll = true;
+                    // else
+                    //     this.checkAll = false;
+                    this.checkAll = this.users.every(m => m.isChecked)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
