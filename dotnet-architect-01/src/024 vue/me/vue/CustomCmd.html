@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-ace>{{num}}</p>
+    </div>
+    <script>
+        Vue.directive("ace",{
+            //`binding`包含指令的信息
+            bind(el,binding){
+               var price = parseInt(el.innerText).toFixed(2);
+               el.innerText = price;
+            },
+            //被绑定的元素插入父节点时调用
+            inserted(){
+
+            },
+            update() {
+            
+            },
+            unbind(){
+                
+            }
+
+        })
+
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                num:10
+            }
+        })
+    </script>
+</body>
+</html>

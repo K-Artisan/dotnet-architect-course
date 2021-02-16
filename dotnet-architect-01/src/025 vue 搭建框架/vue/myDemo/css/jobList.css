@@ -1,0 +1,39 @@
+.job-list table {
+    width: 90%;
+    margin: auto;
+}
+
+.job-list table tr:last-child td {
+    border-bottom: 0 none;
+}
+
+.job-list table tr td {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+.job-list .job-info {
+    width: 40%;
+}
+
+.job-list .job-info p {
+    margin-bottom: 10px;
+}
+
+.job-list .job-position {
+    width: 30%;
+}
+
+.job-list .job-position p:first-child {
+    color: #000;
+}
+
+.job-list .job-position p {
+    font-size: 14px;
+    margin-right: 10px;
+    height: 30px;
+    width: 80px;
+    background-color: rgb(0, 100, 231);
+    color: #ccc;
+    border-radius: 30px;
+}

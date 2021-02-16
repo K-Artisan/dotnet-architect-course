@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-header></my-header>
+        <hello></hello>
+        <word :param1="componentParam" param2="组件参数2"></word>
+        <parent-compt></parent-compt>
+    </div>
+
+    <template id="temp">
+        <div>
+            this is {{msg}} : {{param1}} , {{param2}}
+        </div>
+    </template>
+
+    <template id="parent-child">
+        <div>
+            this is {{msg}} 
+            <child></child>
+        </div>
+    </template>
+
+    <script>
+        Vue.component("my-header", {
+            template: '<h1>{{msg}}</h1>',
+            data() {
+                return {
+                    msg: "全局组件"
+                }
+            }
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                "componentParam": "组件参数 From vm 对象"
+            },
+            components: {
+                "hello": {
+                    template: '<h2>{{msg}}</h2>',
+                    data() {
+                        return {
+                            msg: "局部组件1"
+                        }
+                    }
+
+                },
+                "word": {
+                    template: "#temp",
+
+                    data() {
+                        return {
+                            msg: "局部组件2"
+                        }
+                    },
+                    props: ['param1', 'param2']
+
+                },
+                "parent-compt": {
+                    template: "#parent-child",
+                    data() {
+                        return {
+                            msg: "父组件"
+                        }
+                    },
+                    components: {
+                        //组件嵌套
+                        'child': {
+                            template: '<p>{{childMsg}}</p>',
+                            data() {
+                                return {
+                                    childMsg: "组件嵌套:子组件"
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+        })
+    </script>
+</body>
+
+</html>

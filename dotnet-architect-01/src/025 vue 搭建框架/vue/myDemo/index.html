@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="../lib/vue.min.js"></script>
+    <script src="../lib/vue-router.js"></script>
+    <script src="../lib/axios.min.js"></script>
+    <script src="components/Titlehead.js"></script>
+
+    <script src="view/main.js"></script>
+    <script src="view/jobList.js"></script>
+    <script src="router/index.js"></script>
+
+
+    <link rel="stylesheet" href="css/Titlehead.css"></link>
+    <link rel="stylesheet" href="css/jobList.css"></link>
+    <link rel="stylesheet" href="css/main.css"></link>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <title-header :username="userName"></title-header>
+        <div class="navi">
+            <router-link to="/main">首页</router-link>
+            <router-link to="/jobList">职务列表</router-link>
+
+        </div>
+
+        <router-view></router-view>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                userName: "张三",
+            },
+            router: router,
+            mounted() {},
+            methods: {
+
+            },
+
+        });
+    </script>
+
+</body>
+
+</html>
