@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "IndexToken";
+}
+
+<h1>IndexToken</h1>
+<h3 id="token"></h3>
+
+
+<button id="btn_get_access_token">获取access_token</button>
+<h3>access_token：</h3>
+<h3 id="access_token"></h3>
+
+<script type="text/javascript">
+    var authorization_code = ""; //授权码
+    var content = "";
+    window.onload = function () {
+        var url = window.location.href;
+
+        var array = url.split("#");
+        if (array.length > 1) {
+            content = array[1];
+        }
+        var search = window.location.search;
+        if (search) {
+            search = search.substr(1);
+            var paras = search.split("&");
+            paras.forEach(element => {
+                content += element;
+                content += ";"
+            });//序列化处理
+        }
+        document.getElementById("token").innerHTML = content;
+
+        if (search) {
+            search = search.substr(1);
+            var paras = search.split("&");
+            var codeQueryStr = paras[0]; //code = Mm86eRw - iXt8DcZH_0RcIv0 - ruQ7mhZcLFWsbj5tb3w
+
+            var authorization_code = codeQueryStr.split("=")[1];
+        }
+
+        $("#btn_get_access_token").click(function () {
+            var settings = {
+                "url": "http://localhost:7200/connect/token",
+                "method": "POST",
+                "timeout": 0,
+                "dataType":"json",
+                "data": {
+                    "grant_type": "authorization_code",
+                    "client_id": "Zhaoxi.AspNetCore31.AuthDemo",
+                    "client_secret": "eleven123456",
+                    "scope": "UserApi",
+                    "redirect_uri": "http://localhost:5726/Ids4/IndexCodeToken",
+                    "code": authorization_code
+                }
+            };
+
+            //根据授权码获取access_token
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                document.getElementById("access_token").innerHTML = response.access_token;
+            });
+        })
+
+
+    }
+
+
+</script>
