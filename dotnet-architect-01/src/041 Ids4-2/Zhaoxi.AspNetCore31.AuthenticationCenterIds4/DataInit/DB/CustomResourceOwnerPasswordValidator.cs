@@ -55,8 +55,8 @@ namespace Zhaoxi.AspNetCore31.AuthenticationCenterIds4.DataInit.DB
                 Password = password,
                 Claims = new List<Claim>(){
                         new Claim(IdentityModel.JwtClaimTypes.Role,"Admin"),
-                        new Claim(IdentityModel.JwtClaimTypes.NickName,"Eleven"),
-                        new Claim("eMail","57265177@qq.com")
+                        new Claim(IdentityModel.JwtClaimTypes.NickName,"Eleven-存储于数据库"),
+                        new Claim("eMail","57265177_DataBaseUser@qq.com")
                     }
             };
         }

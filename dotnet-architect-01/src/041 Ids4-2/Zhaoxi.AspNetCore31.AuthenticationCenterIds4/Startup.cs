@@ -98,7 +98,38 @@ namespace Zhaoxi.AspNetCore31.AuthenticationCenterIds4
             //  add-migration InitialIdentityServerConfigurationDbMigration -c ConfigurationDbContext -o Data/Migrations/IdentityServer/ConfigurationDb 
             //  add-migration InitialIdentityServerPersistedGrantDbMigration -c PersistedGrantDbContext -o Data/Migrations/IdentityServer/PersistedGrantDb
             // */
+            #region 密码模式+EFCore-1：内存用户/CustomResourceOwnerPasswordValidator:使用数据账号密码
 
+            //var connectionString = this.Configuration.GetConnectionString("DefaultConnection");
+            //services
+            //    .AddIdentityServer()
+            //    .AddDeveloperSigningCredential()
+            //    .AddConfigurationStore(options =>
+            //    {
+            //        options.ConfigureDbContext = builder =>
+            //        {
+            //            builder.UseSqlServer(connectionString, b => b.MigrationsAssembly(typeof(Startup).Assembly.GetName().Name));
+            //        };
+            //    })
+            //    .AddOperationalStore(options =>
+            //    {
+            //        options.ConfigureDbContext = builder =>
+            //        {
+            //            builder.UseSqlServer(connectionString, b => b.MigrationsAssembly(typeof(Startup).Assembly.GetName().Name));
+            //        };
+            //    })
+            //   //.AddTestUsers(PasswordInitConfig.GetUsers())
+            //   .AddResourceOwnerValidator<CustomResourceOwnerPasswordValidator>()
+            //   .AddProfileService<CustomProfileService>();
+
+            //services.InitSeedData(connectionString);//初始原来的那些内存数据
+            //services.AddTransient<IUserServiceTest, UserServiceTest>(); 
+
+            #endregion
+
+            #endregion
+
+            #region 密码模式+EFCore-2：扩展校验
             var connectionString = this.Configuration.GetConnectionString("DefaultConnection");
 
             services
@@ -108,49 +139,21 @@ namespace Zhaoxi.AspNetCore31.AuthenticationCenterIds4
                 {
                     options.ConfigureDbContext = builder =>
                     {
-                        builder.UseSqlServer(connectionString, b => b.MigrationsAssembly(typeof(Startup).Assembly.GetName().Name));
+                        builder.UseSqlServer(connectionString);
                     };
                 })
                 .AddOperationalStore(options =>
                 {
                     options.ConfigureDbContext = builder =>
                     {
-                        builder.UseSqlServer(connectionString, b => b.MigrationsAssembly(typeof(Startup).Assembly.GetName().Name));
+                        builder.UseSqlServer(connectionString);
                     };
                 })
-               .AddTestUsers(PasswordInitConfig.GetUsers());
-               //.AddResourceOwnerValidator<CustomResourceOwnerPasswordValidator>()
-               //.AddProfileService<CustomProfileService>();
+                .AddExtensionGrantValidator<CustomElevenGrantValidator>();
 
             services.InitSeedData(connectionString);//初始原来的那些内存数据
-
-
             services.AddTransient<IUserServiceTest, UserServiceTest>();
 
-            #endregion
-
-            #region 密码模式+EFCore
-            //var connectionString = this.Configuration.GetConnectionString("DefaultConnection");
-            //services.InitSeedData(connectionString);//初始原来的那些内存数据
-            //services
-            //    .AddIdentityServer()
-            //    .AddDeveloperSigningCredential()
-            //    .AddConfigurationStore(options =>
-            //    {
-            //        options.ConfigureDbContext = builder =>
-            //        {
-            //            builder.UseSqlServer(connectionString);
-            //        };
-            //    })
-            //    .AddOperationalStore(options =>
-            //    {
-            //        options.ConfigureDbContext = builder =>
-            //        {
-            //            builder.UseSqlServer(connectionString);
-            //        };
-            //    })
-            //    .AddExtensionGrantValidator<CustomElevenGrantValidator>();
-            //services.AddTransient<IUserServiceTest, UserServiceTest>();
             #endregion
         }
 
