@@ -1,0 +1,82 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoXi.RedisPublish", "zhaoxi.RedisPublish\ZhaoXi.RedisPublish.csproj", "{6755966C-A68D-420D-8BF1-49E388734663}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoXi.RedisSeckill", "zhaoxi.RedisSeckill\ZhaoXi.RedisSeckill.csproj", "{427F04DE-3A89-4B19-B0A9-E165A27F77A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoXi.RedisSubscribeDB", "zhaoxi.RedisSubscribeDB\ZhaoXi.RedisSubscribeDB.csproj", "{FF59691B-EC65-4865-8C1D-1CF5F5EDED84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoXi.RedisSubscribeTxt", "zhaoxi.RedisSubscribeTxt\ZhaoXi.RedisSubscribeTxt.csproj", "{BBF122DA-E685-4E3D-9C95-E9375EF6F86B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublicAndSubscribe", "PublicAndSubscribe", "{90040EAB-5C57-485F-ADA1-4959A4851612}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Async", "Async", "{C9FD8A69-FEEA-447B-A1CE-D8DAD8705F03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transaction", "Transaction", "{20C35A49-68FC-448D-A508-7F8549EFE4BD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoXi.TransAction", "..\ZhaoXiSeckillModel\ZhaoXi.TransAction\ZhaoXi.TransAction.csproj", "{4C54DFBD-E015-447D-85F3-855BF484DDBD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoXi.Seckill_Client", "..\ZhaoXiSeckillModel\ZhaoXi.Seckill_Client\ZhaoXi.Seckill_Client.csproj", "{26AB8EAA-DE41-426D-A264-4E68BFDEBF65}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoXi.Seckill_Server", "..\ZhaoXiSeckillModel\ZhaoXi.Seckill_Server\ZhaoXi.Seckill_Server.csproj", "{79680227-0FBF-441E-9727-50907F2CB241}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaoXiSeckillModel", "..\ZhaoXiSeckillModel\ZhaoXiSeckillModel\ZhaoXiSeckillModel.csproj", "{224D81B3-9705-4BA9-BB2A-FB8CC0C2C304}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6755966C-A68D-420D-8BF1-49E388734663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6755966C-A68D-420D-8BF1-49E388734663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6755966C-A68D-420D-8BF1-49E388734663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6755966C-A68D-420D-8BF1-49E388734663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{427F04DE-3A89-4B19-B0A9-E165A27F77A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{427F04DE-3A89-4B19-B0A9-E165A27F77A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{427F04DE-3A89-4B19-B0A9-E165A27F77A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{427F04DE-3A89-4B19-B0A9-E165A27F77A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF59691B-EC65-4865-8C1D-1CF5F5EDED84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF59691B-EC65-4865-8C1D-1CF5F5EDED84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF59691B-EC65-4865-8C1D-1CF5F5EDED84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF59691B-EC65-4865-8C1D-1CF5F5EDED84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF122DA-E685-4E3D-9C95-E9375EF6F86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF122DA-E685-4E3D-9C95-E9375EF6F86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF122DA-E685-4E3D-9C95-E9375EF6F86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF122DA-E685-4E3D-9C95-E9375EF6F86B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C54DFBD-E015-447D-85F3-855BF484DDBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C54DFBD-E015-447D-85F3-855BF484DDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C54DFBD-E015-447D-85F3-855BF484DDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C54DFBD-E015-447D-85F3-855BF484DDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26AB8EAA-DE41-426D-A264-4E68BFDEBF65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26AB8EAA-DE41-426D-A264-4E68BFDEBF65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26AB8EAA-DE41-426D-A264-4E68BFDEBF65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26AB8EAA-DE41-426D-A264-4E68BFDEBF65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79680227-0FBF-441E-9727-50907F2CB241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79680227-0FBF-441E-9727-50907F2CB241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79680227-0FBF-441E-9727-50907F2CB241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79680227-0FBF-441E-9727-50907F2CB241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{224D81B3-9705-4BA9-BB2A-FB8CC0C2C304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{224D81B3-9705-4BA9-BB2A-FB8CC0C2C304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{224D81B3-9705-4BA9-BB2A-FB8CC0C2C304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{224D81B3-9705-4BA9-BB2A-FB8CC0C2C304}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6755966C-A68D-420D-8BF1-49E388734663} = {90040EAB-5C57-485F-ADA1-4959A4851612}
+		{FF59691B-EC65-4865-8C1D-1CF5F5EDED84} = {90040EAB-5C57-485F-ADA1-4959A4851612}
+		{BBF122DA-E685-4E3D-9C95-E9375EF6F86B} = {90040EAB-5C57-485F-ADA1-4959A4851612}
+		{4C54DFBD-E015-447D-85F3-855BF484DDBD} = {20C35A49-68FC-448D-A508-7F8549EFE4BD}
+		{26AB8EAA-DE41-426D-A264-4E68BFDEBF65} = {C9FD8A69-FEEA-447B-A1CE-D8DAD8705F03}
+		{79680227-0FBF-441E-9727-50907F2CB241} = {C9FD8A69-FEEA-447B-A1CE-D8DAD8705F03}
+		{224D81B3-9705-4BA9-BB2A-FB8CC0C2C304} = {C9FD8A69-FEEA-447B-A1CE-D8DAD8705F03}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3A6D53E-602E-4F6C-A2CC-3B7CF757BAC4}
+	EndGlobalSection
+EndGlobal
