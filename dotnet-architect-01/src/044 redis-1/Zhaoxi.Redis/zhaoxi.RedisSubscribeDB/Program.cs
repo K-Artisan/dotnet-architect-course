@@ -9,7 +9,8 @@ namespace RedisSubscribeDB
 		{
 			try
 			{
-				using (RedisClient consumer = new RedisClient("127.0.0.1", 6379))
+				//消费者
+				using (RedisClient consumer = new RedisClient("127.0.0.1", 6379,"123456"))
 				{
 					Console.WriteLine($"创建订阅异常信息数据库记录");
 					var subscription = consumer.CreateSubscription();
@@ -32,8 +33,8 @@ namespace RedisSubscribeDB
 					subscription.OnUnSubscribe = (a) => { Console.WriteLine("订阅客户端：取消订阅"); };
 
 					//订阅频道
-					string topicname = "Send_Log";
-					subscription.SubscribeToChannels(topicname);
+					string channelName = "Send_Log";
+					subscription.SubscribeToChannels(channelName);
 				}
 			}
 			catch (Exception ex)

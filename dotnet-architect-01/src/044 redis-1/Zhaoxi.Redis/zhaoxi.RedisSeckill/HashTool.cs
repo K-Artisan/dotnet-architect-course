@@ -35,7 +35,7 @@ namespace RedisChapter1
 			{
 				IdValue = DateTime.Now.ToString("yyyyMMdd");
 			}
-			RedisClient client = new RedisClient("127.0.0.1");
+			RedisClient client = new RedisClient("127.0.0.1", 6379, "123456");
 			client.SetRangeInHash(hashid + IdValue, pairs);
 		}
 
@@ -45,7 +45,7 @@ namespace RedisChapter1
 			Type type = typeof(T);
 			// urn: 类名: id的值
 			var hashid = type.FullName;
-			RedisClient client = new RedisClient("127.0.0.1");
+			RedisClient client = new RedisClient("127.0.0.1", 6379, "123456");
 			var dics = client.GetAllEntriesFromHash(hashid + id.ToString());
 			if (dics.Count == 0)
 			{

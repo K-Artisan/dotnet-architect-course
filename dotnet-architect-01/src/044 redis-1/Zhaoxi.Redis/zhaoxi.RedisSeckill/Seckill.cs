@@ -21,13 +21,14 @@ namespace RedisChapter1
 			{
 				if (DateTime.Now.Minute == minute)
 				{
+					Console.WriteLine("秒杀开始-----------");
 					flag = false;
 					for (int i = 0; i < 10; i++)
 					{
-						string name = $"客户端{id}号:{i}";
+						string name = $"客户端{id}，{i}号用户：";
 						Task.Run(() =>
 						{
-							using (RedisClient client = new RedisClient("127.0.0.1", 6379))
+							using (RedisClient client = new RedisClient("127.0.0.1", 6379,"123456"))
 							{
 								
 								//本来是二步走
@@ -41,7 +42,7 @@ namespace RedisChapter1
 								//>=0
 								else
 								{
-									Console.WriteLine(name + "**********抢购成功***************");
+									Console.WriteLine(name + "**抢购成功**");
 								}
 							}
 						});
@@ -50,6 +51,7 @@ namespace RedisChapter1
 				}
 				Thread.Sleep(10);
 			}
+			Console.WriteLine("秒杀结束-----------");
 			Console.ReadLine();
 			#endregion
 		}

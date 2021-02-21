@@ -16,9 +16,11 @@ namespace RedisPublish
 			{
 				//创建一个公众号--创建一个主题
 				Console.WriteLine("发布服务");
-				IRedisClientsManager redisClientManager = new PooledRedisClientManager("127.0.0.1:6379");
-				string topicname = "Send_Log";
-				RedisPubSubServer pubSubServer = new RedisPubSubServer(redisClientManager, topicname)
+				IRedisClientsManager redisClientManager = new PooledRedisClientManager("123456@127.0.0.1:6379");
+				string channelName = "Send_Log";//频道名
+
+				//发布服务器
+				RedisPubSubServer pubSubServer = new RedisPubSubServer(redisClientManager, channelName)
 				{
 					OnMessage = (channel, msg) =>
 					{
@@ -35,13 +37,14 @@ namespace RedisPublish
 					OnError = e => { Console.WriteLine(e.Message); },
 					OnFailover = s => { Console.WriteLine(s); },
 				};
+
 				//接收消息
 				pubSubServer.Start();
 				while (true)
 				{
 					Console.WriteLine("请输入记录的日志");
 					string message = Console.ReadLine();
-					redisClientManager.GetClient().PublishMessage(topicname, message);
+					redisClientManager.GetClient().PublishMessage(channelName, message);
 				}
 			}
 			catch (Exception ex)
