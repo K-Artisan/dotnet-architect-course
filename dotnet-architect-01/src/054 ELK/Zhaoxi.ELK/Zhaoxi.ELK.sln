@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhaoxi.ElasticSearch", "Zhaoxi.ElasticSreach\Zhaoxi.ElasticSearch.csproj", "{63DD0AE6-80AA-44DE-A5EE-FACCC3A8F7FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.ELK.Logstash_File", "Zhaoxi.ELK.Logstach_File\Zhaoxi.ELK.Logstash_File.csproj", "{15C89508-BE5A-4EA7-8F6B-BD63BE52E38B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.ELK.Logstash_TCP", "Zhaoxi.ELK.Logstach_TCP\Zhaoxi.ELK.Logstash_TCP.csproj", "{4E627899-6120-41A5-9CF7-4A265E566B2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.ELK.LogstashKafka", "Zhaoxi.ELK.LogstashKafka\Zhaoxi.ELK.LogstashKafka.csproj", "{283A15C1-9AB4-4CFB-AA2B-1D394B02E66A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhaoxi.ELK.LogstashRedis", "Zhaoxi.ELK.LogstashRedis\Zhaoxi.ELK.LogstashRedis.csproj", "{80DA9692-2CCF-4155-85C3-49C02AD16F2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63DD0AE6-80AA-44DE-A5EE-FACCC3A8F7FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63DD0AE6-80AA-44DE-A5EE-FACCC3A8F7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63DD0AE6-80AA-44DE-A5EE-FACCC3A8F7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63DD0AE6-80AA-44DE-A5EE-FACCC3A8F7FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15C89508-BE5A-4EA7-8F6B-BD63BE52E38B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C89508-BE5A-4EA7-8F6B-BD63BE52E38B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15C89508-BE5A-4EA7-8F6B-BD63BE52E38B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15C89508-BE5A-4EA7-8F6B-BD63BE52E38B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E627899-6120-41A5-9CF7-4A265E566B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E627899-6120-41A5-9CF7-4A265E566B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E627899-6120-41A5-9CF7-4A265E566B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E627899-6120-41A5-9CF7-4A265E566B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{283A15C1-9AB4-4CFB-AA2B-1D394B02E66A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{283A15C1-9AB4-4CFB-AA2B-1D394B02E66A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{283A15C1-9AB4-4CFB-AA2B-1D394B02E66A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{283A15C1-9AB4-4CFB-AA2B-1D394B02E66A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80DA9692-2CCF-4155-85C3-49C02AD16F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80DA9692-2CCF-4155-85C3-49C02AD16F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80DA9692-2CCF-4155-85C3-49C02AD16F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80DA9692-2CCF-4155-85C3-49C02AD16F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8E4AB09-9862-4805-BC11-A61670F3F186}
+	EndGlobalSection
+EndGlobal

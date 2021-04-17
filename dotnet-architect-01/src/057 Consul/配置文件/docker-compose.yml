@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  service1:
+    build:
+      context: /elevenmicro/webapidemo
+    image: compose31v1.730
+    ports:
+      - 5727:80/tcp
+    command: ["dotnet", "/app/Zhaoxi.Microservice.WebApiDemo"]
+    volumes:
+      - /elevenmicro/webapidemo/appsettings/appsettings5727.json:/app/appsettings.json
+  service2:
+    image: compose31v1.730
+    ports:
+      - 5728:80/tcp
+    command: ["dotnet", "/app/Zhaoxi.Microservice.WebApiDemo"]
+    volumes:
+      - /elevenmicro/webapidemo/appsettings/appsettings5728.json:/app/appsettings.json

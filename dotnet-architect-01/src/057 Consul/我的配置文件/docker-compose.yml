@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  webapi-node3:
+    image: api-3.1-v1.0
+    restart: always
+    ports:
+      - 5728:80/tcp
+    command: ["dotnet", "/app/Zhaoxi.Microservice.WebApiDemo"]
+    volumes:
+      - /workbench/dotnet/webpulish/appsettings/webapi/appsettings5728.json:/app/appsettings.json
+  webapi-node4:
+    image: api-3.1-v1.0
+    restart: always
+    ports:
+      - 5729:80/tcp
+    command: ["dotnet", "/app/Zhaoxi.Microservice.WebApiDemo"]
+    volumes:
+      - /workbench/dotnet/webpulish/appsettings/webapi/appsettings5729.json:/app/appsettings.json
