@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
-namespace Zhaoxi.MicroService.GatewayDemo
+namespace Zhaoxi.gRPCDemo.RecordServer
 {
     public class Program
     {
@@ -16,12 +15,10 @@ namespace Zhaoxi.MicroService.GatewayDemo
             CreateHostBuilder(args).Build().Run();
         }
 
+        // Additional configuration is required to successfully run gRPC on macOS.
+        // For instructions on how to configure Kestrel and gRPC clients on macOS, visit https://go.microsoft.com/fwlink/?linkid=2099682
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-             .ConfigureAppConfiguration(conf =>
-             {
-                 conf.AddJsonFile("configuration.json", optional: false, reloadOnChange: true);
-             })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

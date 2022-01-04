@@ -1,49 +1,49 @@
 //*****************************单地址********************************
-{
-  //ReRoutes--16.0跟
-  "Routes": [
-    {
-      "DownstreamPathTemplate": "/api/{url}", //服务地址--url变量
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "39.96.82.51/",
-          "Port": 5727 //服务端口
-        }
-      ],
-      "UpstreamPathTemplate": "/T5726/{url}", //网关地址--url变量
-      "UpstreamHttpMethod": [ "Get", "Post" ]
-    }
-  ]
-}
-
-////*****************************单地址全匹配********************************
 //{
-//  "ReRoutes": [
-//    {
-//      "DownstreamPathTemplate": "/{url}", //服务地址--url变量
-//      "DownstreamScheme": "http",
-//      "DownstreamHostAndPorts": [
-//        {
-//          "Host": "localhost",
-//          "Port": 5726 //服务端口
-//        }
-//      ],
-//      "UpstreamPathTemplate": "/{url}", //网关地址--url变量   //冲突的还可以加权重Priority
-//      "UpstreamHttpMethod": [ "Get", "Post" ]
-//    }
-//  ]
-//}
-
-////*****************************多地址多实例********************************
-//{
-//  "ReRoutes": [
+//  //ReRoutes--16.0跟
+//  "Routes": [
 //    {
 //      "DownstreamPathTemplate": "/api/{url}", //服务地址--url变量
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
+//          "Port": 5726 //服务端口
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/T5726/{url}", //网关地址--url变量
+//      "UpstreamHttpMethod": [ "Get", "Post" ]
+//    }
+//  ]
+//}
+
+////*****************************单地址全匹配********************************
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/{url}", //服务地址--url变量
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.130.129",
+          "Port": 5726 //服务端口
+        }
+      ],
+      "UpstreamPathTemplate": "/{url}", //网关地址--url变量   //冲突的还可以加权重Priority
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    }
+  ]
+}
+
+//////*****************************多地址多实例********************************
+//{
+//  "Routes": [
+//    {
+//      "DownstreamPathTemplate": "/api/{url}", //服务地址--url变量
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "192.168.130.129",
 //          "Port": 5726 //服务端口
 //        } //可以多个，自行负载均衡
 //      ],
@@ -55,7 +55,7 @@
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5727 //服务端口
 //        }
 //      ],
@@ -67,7 +67,7 @@
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5728 //服务端口
 //        }
 //      ],
@@ -77,16 +77,16 @@
 //  ]
 //}
 
-//////MVC的路由规则是近水楼台先得月--
-////*****************************路由冲突+带权匹配********************************
+////MVC的路由规则是近水楼台先得月--
+//*****************************路由冲突+带权匹配********************************
 //{
-//  "ReRoutes": [
+//  "Routes": [
 //    {
 //      "DownstreamPathTemplate": "/{url}", //服务地址--url变量
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5726 //服务端口
 //        }
 //      ],
@@ -99,7 +99,7 @@
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5727 //服务端口
 //        }
 //      ],
@@ -112,7 +112,7 @@
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5728 //服务端口
 //        }
 //      ],
@@ -134,16 +134,16 @@
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5726 //服务端口
 //        } //可以多个，自行负载均衡
 //        ,
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5727 //服务端口
 //        },
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5728 //服务端口
 //        }
 //      ],
@@ -179,12 +179,12 @@
 //  "GlobalConfiguration": {
 //    "BaseUrl": "http://127.0.0.1:6299", //网关对外地址
 //    "ServiceDiscoveryProvider": {
-//      "Host": "localhost",
+//      "Host": "192.168.130.129",
 //      "Port": 8500,
 //      "Type": "Consul" //由Consul提供服务发现, 每次请求去consul
 //    },
 //    //"ServiceDiscoveryProvider": {
-//    //  "Host": "localhost",
+//    //  "Host": "192.168.130.129",
 //    //  "Port": 8500,
 //    //  "Type": "PollConsul", //由Consul提供服务发现,
 //    //  "PollingInterval": 1000 //轮询consul,频率毫秒--down掉是不知道的
@@ -215,12 +215,12 @@
 //  "GlobalConfiguration": {
 //    "BaseUrl": "http://127.0.0.1:6299", //网关对外地址
 //    "ServiceDiscoveryProvider": {
-//      "Host": "localhost",
+//      "Host": "192.168.130.129",
 //      "Port": 8500,
 //      "Type": "Consul" //由Consul提供服务发现, 每次请求去consul
 //    }
 //    //"ServiceDiscoveryProvider": {
-//    //  "Host": "localhost",
+//    //  "Host": "192.168.130.129",
 //    //  "Port": 8500,
 //    //  "Type": "PollConsul", //由Consul提供服务发现,
 //    //  "PollingInterval": 1000 //轮询consul,频率毫秒--down掉是不知道的
@@ -267,7 +267,7 @@
 //  "GlobalConfiguration": {
 //    "BaseUrl": "http://127.0.0.1:6299", //网关对外地址
 //    "ServiceDiscoveryProvider": {
-//      "Host": "localhost",
+//      "Host": "192.168.130.129",
 //      "Port": 8500,
 //      "Type": "Consul" //由Consul提供服务发现
 //    },
@@ -312,7 +312,7 @@
 //  "GlobalConfiguration": {
 //    "BaseUrl": "http://127.0.0.1:6299", //网关对外地址
 //    "ServiceDiscoveryProvider": {
-//      "Host": "localhost",
+//      "Host": "192.168.130.129",
 //      "Port": 8500,
 //      "Type": "Consul" //由Consul提供服务发现
 //    },
@@ -326,13 +326,13 @@
 
 //*****************************请求聚合aggregator********************************
 //{
-//  "ReRoutes": [
+//  "Routes": [
 //    {
 //      "DownstreamPathTemplate": "/api/users/all", //服务地址--url变量
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5726 //服务端口
 //        } //可以多个，自行负载均衡
 //      ],
@@ -345,7 +345,7 @@
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5727 //服务端口
 //        }
 //      ],
@@ -358,7 +358,7 @@
 //      "DownstreamScheme": "http",
 //      "DownstreamHostAndPorts": [
 //        {
-//          "Host": "localhost",
+//          "Host": "192.168.130.129",
 //          "Port": 5728 //服务端口
 //        }
 //      ],
@@ -383,7 +383,7 @@
 
 //  //*****************************单地址多实例负载均衡+Consul********************************
 //{
-//  "ReRoutes": [
+//  "Routes": [
 //    {
 //      "DownstreamPathTemplate": "/api/{url}", //服务地址--url变量
 //      "DownstreamScheme": "http",
@@ -403,12 +403,12 @@
 //  "GlobalConfiguration": {
 //    "BaseUrl": "http://127.0.0.1:6299", //网关对外地址
 //    "ServiceDiscoveryProvider": {
-//      "Host": "localhost",
+//      "Host": "192.168.130.129",
 //      "Port": 8500,
 //      "Type": "Consul" //由Consul提供服务发现, 每次请求去consul
 //    },
 //    //"ServiceDiscoveryProvider": {
-//    //  "Host": "localhost",
+//    //  "Host": "192.168.130.129",
 //    //  "Port": 8500,
 //    //  "Type": "PollConsul", //由Consul提供服务发现,
 //    //  "PollingInterval": 1000 //轮询consul,频率毫秒--down掉是不知道的
